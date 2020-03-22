@@ -1,0 +1,44 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Shorten your URL</mat-card-title>
+      </mat-card-header>
+      <br>
+  
+      <form class="example-form">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Big URL" name="bigUrl" [(ngModel)]="bigUrl" required>
+          </mat-form-field>
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="urlOption" name="urlOption">
+            <mat-radio-button value="custom">Custom Url</mat-radio-button>
+            <mat-radio-button value="random">Random Url</mat-radio-button>
+          </mat-radio-group>
+        </mat-card-content>
+        <br><br>
+        <mat-form-field *ngIf="urlOption === 'custom'" class="example-full-width">
+            <input matInput placeholder="example - ppt" name="customShortUrl" [(ngModel)]="customShortUrl" required>
+        </mat-form-field>
+        <p *ngIf="urlOption === 'custom'" style="background-color: #7E9E7D;">
+            Tip: If you have entered ppt, your short url will be like https://example.com/ppt
+        </p>
+        <br>
+        <button *ngIf="isLoggedIn === true" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL</button>
+        <button *ngIf="isLoggedIn === false" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL (3 days validity)</button>
+        <!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
+        <br><br>
+        <p *ngIf="isLoggedIn === false" style="background-color: #7E9E7D;">
+            Looks like you've not logged in, but still you will be able to create short url's with limited time (3 days)
+        </p>
+        <p routerLink="/register" routerLinkActive="active" *ngIf="isLoggedIn === false" style="
+        text-align: right;
+        font-size: 16px;
+        padding-top: 10px;
+        color: #3f3dca;
+        cursor: pointer;
+        margin: 0;">
+        Don't have an account? Signup</p>
+      </form>
+    </mat-card>  
+  </div>

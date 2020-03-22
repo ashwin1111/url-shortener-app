@@ -1,0 +1,37 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Signup</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form">
+
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" name="name" [(ngModel)]="name" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" name="email" [(ngModel)]="email" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="password" required>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <button mat-stroked-button color="accent" class="btn-block" (click)="signup()">Ready to Rock</button>
+      <br><br>
+      <p routerLink="/login" routerLinkActive="active" style="
+      text-align: right;
+      font-size: 16px;
+      padding-top: 10px;
+      color: #3f3dca;
+      cursor: pointer;
+      margin: 0;">
+      Have an account already? Login</p>
+
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,11 @@
+<!-- Toolbar -->
+<mat-toolbar class="app-header">
+  <div><a routerLink="short-url" class="positronx">URL Shortener</a></div>
+  <span class="nav-tool-items" style="color: white">
+    <a *ngIf="!loggedIn" mat-button routerLink="login" routerLinkActive="active">Login</a>
+    <a *ngIf="!loggedIn" mat-button routerLink="register" routerLinkActive="active">Signup</a>
+    <a *ngIf="loggedIn" mat-button (click)="logout()">Logout</a>
+  </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

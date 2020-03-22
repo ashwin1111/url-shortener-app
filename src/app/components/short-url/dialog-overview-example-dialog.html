@@ -1,0 +1,41 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button cdkFocusInitial>Ok</button>
+</div> -->
+
+
+    <div class="login-wrapper" style="overflow: hidden !important;" fxLayout="row" fxLayoutAlign="center center" >
+
+    <mat-card class="box2" >
+      <mat-card-header>
+        <mat-card-title>Copy your Kutty URL</mat-card-title>
+      </mat-card-header>
+      <br>
+  
+      <form class="example-form" style="overflow: hidden !important;">
+        <mat-card-content style="overflow: overlay !important;">
+          <mat-form-field style="width: 300px;">
+            <mat-label>Short URL</mat-label>
+            <!-- <input matInput id="shortUrl" name="shortUrl" [(ngModel)]="data.shortUrl" > -->
+            <textarea matInput id="shortUrl" name="shortUrl" [(ngModel)]="data.shortUrl"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+        </mat-card-content>
+        <!-- {{data.shortUrl}}  -->
+        <br><br>
+        <button mat-stroked-button color="accent" class="btn-block" (click)="copyToClipboard()">Copy to Clipboard</button>
+      </form>
+    </mat-card>
+  
+  </div>
