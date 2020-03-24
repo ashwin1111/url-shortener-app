@@ -10,6 +10,13 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
+  getBaseUrl() {
+    // https://urlll.xyz
+    // http://localhost:3333
+    // https://short--url.herokuapp.com
+    return 'https://short--url.herokuapp.com';
+  }
+
   apiCall(apiUrl, payloadData): Promise<void | Object> {
     console.log('api call in progress');
     const token = localStorage.getItem('x-access-token');

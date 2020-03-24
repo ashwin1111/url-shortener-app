@@ -25,11 +25,11 @@
         </p>
         <br>
         <button *ngIf="isLoggedIn === true" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL</button>
-        <button *ngIf="isLoggedIn === false" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL (3 days validity)</button>
+        <button *ngIf="isLoggedIn === false" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL (7 days validity)</button>
         <!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
         <br><br>
         <p *ngIf="isLoggedIn === false" style="background-color: #7E9E7D;">
-            Looks like you've not logged in, but still you will be able to create short url's with limited time (3 days)
+            Looks like you've not logged in, but still you will be able to create short url's with limited time (7 days)
         </p>
         <p routerLink="/register" routerLinkActive="active" *ngIf="isLoggedIn === false" style="
         text-align: right;

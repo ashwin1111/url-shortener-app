@@ -23,8 +23,6 @@ export class ShortUrlComponent implements OnInit {
   bigUrl: any;
   urlOption: any;
   customShortUrl: any;
-  name: any;
-  animal: any;
   shortUrl: any;
   data: any;
   isLoggedIn = false;
@@ -33,13 +31,11 @@ export class ShortUrlComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '400px',
       height: '400px',
-      // res.msg.short_url
       data: { shortUrl: res.msg.short_url }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
-      this.animal = result;
     });
   }
 
@@ -64,7 +60,14 @@ export class ShortUrlComponent implements OnInit {
   }
 
   createUrl(validity) {
-    this.apiService.apiCall('https://short--url.herokuapp.com/url/' + validity + '/' + this.urlOption, this.data).then(res => {
+    var baseUrl = this.apiService.getBaseUrl();
+    this.apiService.apiCall(baseUrl + '/url/' + validity + '/' + this.urlOption, this.data).then(res => {
+      if (Object(res).token === 'expired') {
+        this.apiService.apiCall(baseUrl + '/auth/refresh_token', '').then(ress => {
+          localStorage.setItem('x-access-token', Object(ress).token);
+          this.createUrl(validity);
+        });
+      }
       this.validateResult(res);
     });
   }
@@ -89,8 +92,6 @@ export class ShortUrlComponent implements OnInit {
 }
 
 export interface DialogData {
-  animal: string;
-  name: string;
   shortUrl: string;
 }
 
@@ -104,8 +105,7 @@ export class DialogOverviewExampleDialog {
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
-  animal: string;
-  name: string;
+
   shortUrl: any;
 
   onNoClick(): void {

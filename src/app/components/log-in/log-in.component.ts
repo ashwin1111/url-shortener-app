@@ -23,7 +23,9 @@ export class LogInComponent implements OnInit {
         password: this.password
       };
 
-      this.apiService.apiCall('https://short--url.herokuapp.com/auth/login', data).then(res => {
+      var baseUrl = this.apiService.getBaseUrl();
+
+      this.apiService.apiCall(baseUrl + '/auth/login', data).then(res => {
         console.log('res', res);
         if (Object(res).auth === true && Object(res).msg === 'Login success :)') {
           localStorage.setItem('x-access-token', Object(res).token);

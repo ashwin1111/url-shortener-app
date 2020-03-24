@@ -19,7 +19,6 @@ export class RegisterComponent implements OnInit {
   name: any;
   email: any;
   password: any;
-  baseUrl = 'https://short--url.herokuapp.com';
 
   signup() {
     if ((this.name !== '' && this.name !== undefined) && (this.email !== '' && this.email !== undefined) && (this.password !== '' && this.password !== undefined)) {
@@ -29,7 +28,9 @@ export class RegisterComponent implements OnInit {
         password: this.password
       };
 
-      this.apiService.apiCall('https://short--url.herokuapp.com/auth/register', data).then(res => {
+      var baseUrl = this.apiService.getBaseUrl();
+
+      this.apiService.apiCall(baseUrl + '/auth/register', data).then(res => {
         console.log(res);
         if (Object(res).auth === true && Object(res).msg === 'User registered successfully') {
           this.router.navigate(['/login'])
