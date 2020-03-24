@@ -11,10 +11,10 @@ export class ApiService {
   ) { }
 
   getBaseUrl() {
-    // https://urlll.xyz
-    // http://localhost:3333
-    // https://short--url.herokuapp.com
-    return 'https://short--url.herokuapp.com';
+    var local = 'http://localhost:3333';
+    var heroku = 'https://short--url.herokuapp.com';
+    var prod = 'https://urlll.xyz';
+    return heroku;
   }
 
   apiCall(apiUrl, payloadData): Promise<void | Object> {

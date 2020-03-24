@@ -3,7 +3,7 @@ import { Router } from "@angular/router"
 import { ApiService } from '../../api.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppComponent } from '../../app.component';
-
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-short-url',
@@ -17,7 +17,8 @@ export class ShortUrlComponent implements OnInit {
     private router: Router,
     private apiService: ApiService,
     public dialog: MatDialog,
-    public myapp: AppComponent
+    public myapp: AppComponent,
+    private spinner: NgxSpinnerService
   ) { }
 
   bigUrl: any;
@@ -68,11 +69,13 @@ export class ShortUrlComponent implements OnInit {
           this.createUrl(validity);
         });
       }
+      this.spinner.hide();
       this.validateResult(res);
     });
   }
 
   shortenUrl(): void {
+    this.spinner.show();
     if ((this.bigUrl !== '' && this.bigUrl !== undefined) && (this.urlOption !== '' && this.urlOption !== undefined)) {
       this.getPayloadData();
       if (localStorage.getItem('x-access-token') !== null) {
@@ -82,6 +85,7 @@ export class ShortUrlComponent implements OnInit {
       }
     } else {
       // please enter all required fields
+      this.spinner.hide();
     }
   }
 

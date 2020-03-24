@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import {Router} from "@angular/router"
 import { ApiService } from '../../api.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-register',
@@ -12,15 +12,16 @@ import { ApiService } from '../../api.service';
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private http: HttpClient,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private spinner: NgxSpinnerService
   ) { }
   name: any;
   email: any;
   password: any;
 
   signup() {
+    this.spinner.show();
     if ((this.name !== '' && this.name !== undefined) && (this.email !== '' && this.email !== undefined) && (this.password !== '' && this.password !== undefined)) {
       var data = {
         name: this.name,
@@ -34,10 +35,15 @@ export class RegisterComponent implements OnInit {
         console.log(res);
         if (Object(res).auth === true && Object(res).msg === 'User registered successfully') {
           this.router.navigate(['/login'])
+        } else {
+          // there was a problem while registering the user
+          // todo: add condition for showing existing user
         }
+        this.spinner.hide();
       });
     } else {
       // please enter all required fields
+      this.spinner.hide();
     }
   }
 

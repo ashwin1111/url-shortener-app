@@ -21,6 +21,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShortUrlComponent, DialogOverviewExampleDialog } from './components/short-url/short-url.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ShortUrlComponent, DialogOverviewExampleDialog } from './components/sho
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
