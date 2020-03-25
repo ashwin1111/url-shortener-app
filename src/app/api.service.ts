@@ -14,7 +14,7 @@ export class ApiService {
     var local = 'http://localhost:3333';
     var heroku = 'https://short--url.herokuapp.com';
     var prod = 'https://urlll.xyz';
-    return heroku;
+    return prod;
   }
 
   apiCall(apiUrl, payloadData): Promise<void | Object> {

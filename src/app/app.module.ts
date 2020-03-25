@@ -21,8 +21,10 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShortUrlComponent, DialogOverviewExampleDialog } from './components/short-url/short-url.component';
-import { NgxSpinnerModule } from "ngx-spinner";
-
+import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
+import { VerifiedComponent } from './components/verified/verified.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
     RegisterComponent,
     LogInComponent,
     ShortUrlComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    VerifiedComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +47,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    SweetAlert2Module.forRoot(),
   ],
-  providers: [],
+  providers: [NgxSpinnerModule, NgxSpinnerService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [

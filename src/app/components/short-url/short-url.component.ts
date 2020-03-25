@@ -56,6 +56,8 @@ export class ShortUrlComponent implements OnInit {
   validateResult(res) {
     console.log('res', res);
     if (Object(res).msg) {
+      this.bigUrl = null;
+      this.customShortUrl = null;
       this.openDialog(res);
     }
   }
@@ -121,7 +123,7 @@ export class DialogOverviewExampleDialog {
     var copyText = (document.getElementById("shortUrl") as HTMLInputElement);
     copyText.select();
     copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
+    document.execCommand("copy"); 
   }
 
 }

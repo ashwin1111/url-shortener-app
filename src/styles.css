@@ -149,3 +149,25 @@ body {
 .mat-radio-button ~ .mat-radio-button {
   margin-left: 16px;
 }
+
+.footer-demo {
+  height: 100%; /* Angular material adds "height:100%" to body tag by default. So, ignore this step in real-time application */
+}
+
+.demo-section {
+  border: 1px solid #bbb;
+}
+
+footer {
+  color: white;
+  background-color: #2C4B64;
+  font-weight: bold;
+  font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  border-top: 1px solid #2E4F66;
+  text-align: center;
+  margin-bottom: -24px;
+  margin-top: -81px;
+  justify-content: space-between;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+  padding: 0px 0px 24px 0px;
+}

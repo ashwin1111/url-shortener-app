@@ -26,7 +26,6 @@
         <br>
         <button *ngIf="isLoggedIn === true" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL</button>
         <button *ngIf="isLoggedIn === false" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL (7 days validity)</button>
-        <!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
         <br><br>
         <p *ngIf="isLoggedIn === false" style="background-color: #7E9E7D;">
             Looks like you've not logged in, but still you will be able to create short url's with limited time (7 days)
@@ -39,6 +38,10 @@
         cursor: pointer;
         margin: 0;">
         Don't have an account? Signup</p>
+        <button [swal]="['Oops!', 'This is not implemented yet :/', 'warning']">
+          Do it!
+        </button>
       </form>
     </mat-card>  
   </div>
+  <app-footer></app-footer>
