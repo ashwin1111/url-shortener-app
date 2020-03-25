@@ -1,43 +1,50 @@
-# URL Shortener
+# [URL Shortener](https://urlll.xyz)
 
-![]()
+Simple URL shortener! URL shortener allows to reduce long links from Facebook, YouTube, Twitter, Linked In and top sites on the Internet, just paste the long URL and click the Shorten URL button. On the next screen, copy the shortened URL and share it on websites, chat and e-mail. Feel free to check the [Live Demo](https://urlll.xyz).
 
-Simple URL shortener! URL shortener allows to reduce long links from Facebook, YouTube, Twitter, Linked In and top sites on the Internet, just paste the long URL and click the Shorten URL button. On the next screen, copy the shortened URL and share it on websites, chat and e-mail.
+## Tech Stack
+<li>NodeJS - API
+<li>Heroku Postgres - Primary Database
+<li>Redis - Caching
+<li>Angular 9 - Webapp
+<li>Firebase - Angular Deployment
+<li>Heroku - API Deployment
 
-## URL Shortener [Live Demo](#)
-## Split-ups
-`Shorten URL without sign in` (Shortened URL will expire in 7 days)
+## Split-up / Modules
+<li>Shorten URL without sign in (Shortened URL will expire in 7 days)
 
-`Shorten URL with sign in` (Will be availble for lifetime)
+<li>Shorten URL with sign in (Will be availble for lifetime)
 
-`Email Verification`
+<li>Email Verification
 
-`Sessions using JWT Tokens`
+<li>Sessions using JWT Tokens
 
-`Password Hashing`
+<li>Password Hashing
 
-`Postgres Database`
+<li>Postgres Database
 
-`Valid URLs`
+<li>Valid URLs
 
-`Job to run every 12h to delete url's with expired time`
+<li>Job to run every 12h to delete url's with expired time
 
-`Implemented caching using redis`
+<li>Implemented caching using redis
+
+<li>Check whether the requested short url is available
 
 ## Future releases
 
-`check whether the requested short url is available`
+<li>URL Collections - ex: you can have your own collections like urlll.xyz/collections/ashwin
 
-`delete short url`
+<li>Deleting created short url
 
-`email verificaton with access token`
+<li>Email verificaton with access token
 
-`confirmed account trigger email`
+<li>Trigger email on account confirmation
 
-`refresh tokens`
+<li>Refresh tokens
 
-`edit url`
+<li>Edit already created url's
 
-`forget pwd`
+<li>Forget password
 
-`profile page`
+<li>Profile page
