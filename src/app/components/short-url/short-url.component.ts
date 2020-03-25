@@ -1,10 +1,14 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router"
 import { ApiService } from '../../api.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppComponent } from '../../app.component';
 import { NgxSpinnerService } from "ngx-spinner";
-import { DialogOverviewExampleDialog } from '../modal/display-short-url.component';
+import { DisplayShortUrl } from '../modal/display-short-url.component';
+import { Alert } from '../modal/alert.component';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-short-url',
@@ -20,17 +24,69 @@ export class ShortUrlComponent implements OnInit {
     public dialog: MatDialog,
     public myapp: AppComponent,
     private spinner: NgxSpinnerService
-  ) { }
+  ) {
+    this.customShortUrlUpdate.pipe(
+      debounceTime(1200),
+      distinctUntilChanged())
+      .subscribe(value => {
+        if (value.length > 0) {
+          this.checkCustomUrl(value);
+        }
+      });
+  }
 
+  customShortUrlUpdate = new Subject<string>();
   bigUrl: any;
   urlOption: any;
   customShortUrl: any;
   shortUrl: any;
   data: any;
   isLoggedIn = false;
+  isAvailable = false;
 
-  openDialog(res): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+  checkCustomUrl (input) {
+    var baseUrl = this.apiService.getBaseUrl();
+    this.data = {
+      customShortUrl: input
+    };
+
+    this.spinner.show();
+    this.apiService.apiCall(baseUrl + '/url/availability', this.data).then(res => {
+      if (Object(res).token === 'expired') {
+        this.apiService.apiCall(baseUrl + '/auth/refresh_token', '').then(ress => {
+          localStorage.setItem('x-access-token', Object(ress).token);
+          this.checkCustomUrl(input);
+        });
+      } else {
+        this.spinner.hide();
+        if (Object(res).availability === true) {
+          this.isAvailable = true;
+        } else {
+          this.isAvailable = false;
+        }
+      }
+    });
+  }
+
+  openDialog(values): void {
+    const dialogRef = this.dialog.open(Alert, {
+      width: '400px',
+      height: '400px',
+      data: { 
+        text: values.text,
+        button: values.button,
+        heading: values.heading,
+        bigHeading: values.bigHeading
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  showDialog(res): void {
+    const dialogRef = this.dialog.open(DisplayShortUrl, {
       width: '400px',
       height: '400px',
       data: { shortUrl: res.msg.short_url }
@@ -59,7 +115,15 @@ export class ShortUrlComponent implements OnInit {
     if (Object(res).msg) {
       this.bigUrl = null;
       this.customShortUrl = null;
-      this.openDialog(res);
+      this.showDialog(res);
+    } else if (Object(res).error.msg === 'Internal error') {
+      var data = {
+        text: 'There was an error in creating short url',
+        button: 'Close',
+        heading: 'Reason',
+        bigHeading: 'Creating Short Url failed :('
+      }
+      this.openDialog(data);
     }
   }
 

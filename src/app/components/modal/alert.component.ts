@@ -2,34 +2,37 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface DialogData {
-    shortUrl: string;
+    text: string;
+    button: string;
+    heading: string;
+    bigHeading: string;
 }
 
 @Component({
-    selector: 'display-short-url',
-    templateUrl: 'display-short-url.html'
+    selector: 'alert',
+    templateUrl: 'alert.html'
 })
-export class DisplayShortUrl implements OnInit {
+export class Alert implements OnInit {
     constructor(
-        public dialogRef: MatDialogRef<DisplayShortUrl>,
+        public dialogRef: MatDialogRef<Alert>,
         public dialog: MatDialog,
         @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-    shortUrl: any;
+    text: any;
+    button: any;
+    heading: any;
+    bigHeading: any;
 
     onNoClick(): void {
         this.dialogRef.close();
     }
 
     copyToClipboard(): void {
-        console.log('this.shortUrl', this.data.shortUrl);
-        var copyText = (document.getElementById("shortUrl") as HTMLInputElement);
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        document.execCommand("copy");
+        this.dialogRef.close();
     }
 
     ngOnInit() {
+        // console.log('this.shortUrl', this.data);
         // this.isLoggedIn = this.myapp.refreshAppComponent();
       }
 

@@ -24,7 +24,8 @@ import { ShortUrlComponent } from './components/short-url/short-url.component';
 import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
 import { VerifiedComponent } from './components/verified/verified.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DialogOverviewExampleDialog } from './components/modal/display-short-url.component';
+import { DisplayShortUrl } from './components/modal/display-short-url.component';
+import { Alert } from './components/modal/alert.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DialogOverviewExampleDialog } from './components/modal/display-short-ur
     RegisterComponent,
     LogInComponent,
     ShortUrlComponent,
-    DialogOverviewExampleDialog,
+    DisplayShortUrl,
+    Alert,
     VerifiedComponent,
     FooterComponent
   ],
@@ -53,7 +55,7 @@ import { DialogOverviewExampleDialog } from './components/modal/display-short-ur
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
-    DialogOverviewExampleDialog
+    DisplayShortUrl, Alert
   ]
 })
 

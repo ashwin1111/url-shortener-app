@@ -1,36 +1,47 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
-    <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>Shorten your URL</mat-card-title>
-      </mat-card-header>
-      <br>
-  
-      <form class="example-form">
-        <mat-card-content>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Big URL" name="bigUrl" [(ngModel)]="bigUrl" required>
-          </mat-form-field>
-          <mat-radio-group aria-label="Select an option" [(ngModel)]="urlOption" name="urlOption">
-            <mat-radio-button value="custom">Custom Url</mat-radio-button>
-            <mat-radio-button value="random">Random Url</mat-radio-button>
-          </mat-radio-group>
-        </mat-card-content>
-        <br><br>
-        <mat-form-field *ngIf="urlOption === 'custom'" class="example-full-width">
-            <input matInput placeholder="example - ppt" name="customShortUrl" [(ngModel)]="customShortUrl" required>
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Shorten your URL</mat-card-title>
+    </mat-card-header>
+    <br>
+
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Big URL" name="bigUrl" [(ngModel)]="bigUrl" required>
         </mat-form-field>
-        <p *ngIf="urlOption === 'custom'" style="background-color: #7E9E7D;">
-            Tip: If you have entered ppt, your short url will be like https://example.com/ppt
-        </p>
-        <br>
-        <button *ngIf="isLoggedIn === true" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL</button>
-        <button *ngIf="isLoggedIn === false" mat-stroked-button color="accent" class="btn-block" (click)="shortenUrl();">Generate a Kutty URL (7 days validity)</button>
-        <br><br>
-        <p *ngIf="isLoggedIn === false" style="background-color: #7E9E7D;">
-            Looks like you've not logged in, but still you will be able to create short url's with limited time (7 days)
-        </p>
-        <p routerLink="/register" routerLinkActive="active" *ngIf="isLoggedIn === false" style="
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="urlOption" name="urlOption">
+          <mat-radio-button value="custom">Custom Url</mat-radio-button>
+          <mat-radio-button value="random">Random Url</mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+      <br><br>
+      <mat-form-field *ngIf="urlOption === 'custom'" class="example-full-width">
+        <input matInput placeholder="example - ppt" name="customShortUrl" [(ngModel)]="customShortUrl"
+        (ngModelChange)="this.customShortUrlUpdate.next($event)" required>
+      </mat-form-field>
+      <p *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === true"
+        style="background-color: #47e073;">
+        https://urlll.xyz/{{customShortUrl}} is available
+      </p>
+      <p *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === false"
+        style="background-color: #ea4848;color: white;">
+        https://urlll.xyz/{{customShortUrl}} is not available
+      </p>
+      <p *ngIf="urlOption === 'custom' && customShortUrl?.length < 1" style="background-color: #7E9E7D;">
+        Tip: If you have entered ppt, your short url will be like https://urlll.xyz/ppt
+      </p>
+      <br>
+      <button *ngIf="isLoggedIn === true" mat-stroked-button color="accent" class="btn-block"
+        (click)="shortenUrl();">Generate a Kutty URL</button>
+      <button *ngIf="isLoggedIn === false" mat-stroked-button color="accent" class="btn-block"
+        (click)="shortenUrl();">Generate a Kutty URL (7 days validity)</button>
+      <br><br>
+      <p *ngIf="isLoggedIn === false" style="background-color: #7E9E7D;">
+        Looks like you've not logged in, but still you will be able to create short url's with limited time (7 days)
+      </p>
+      <p routerLink="/register" routerLinkActive="active" *ngIf="isLoggedIn === false" style="
         text-align: right;
         font-size: 16px;
         padding-top: 10px;
@@ -38,7 +49,7 @@
         cursor: pointer;
         margin: 0;">
         Don't have an account? Signup</p>
-      </form>
-    </mat-card>  
-  </div>
-  <app-footer></app-footer>
+    </form>
+  </mat-card>
+</div>
+<app-footer></app-footer>
