@@ -20,11 +20,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ShortUrlComponent, DialogOverviewExampleDialog } from './components/short-url/short-url.component';
+import { ShortUrlComponent } from './components/short-url/short-url.component';
 import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
 import { VerifiedComponent } from './components/verified/verified.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { DialogOverviewExampleDialog } from './components/modal/display-short-url.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +47,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    NgxSpinnerModule,
-    SweetAlert2Module.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [NgxSpinnerModule, NgxSpinnerService],
   bootstrap: [AppComponent],
