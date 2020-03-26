@@ -89,6 +89,7 @@ export class ShortUrlComponent implements OnInit {
     const dialogRef = this.dialog.open(DisplayShortUrl, {
       width: '400px',
       height: '400px',
+      // res.msg.short_url
       data: { shortUrl: res.msg.short_url }
     });
 
@@ -112,13 +113,21 @@ export class ShortUrlComponent implements OnInit {
 
   validateResult(res) {
     console.log('res', res);
-    if (Object(res).msg) {
+    if (Object(res).msg && Object(res).msg.short_url) {
       this.bigUrl = null;
       this.customShortUrl = null;
       this.showDialog(res);
     } else if (Object(res).error.msg === 'Internal error') {
       var data = {
         text: 'There was an error in creating short url',
+        button: 'Close',
+        heading: 'Reason',
+        bigHeading: 'Creating Short Url failed :('
+      }
+      this.openDialog(data);
+    } else if (Object(res).error.msg === 'Not a valid URL') {
+      var data = {
+        text: 'Please enter a valid URL',
         button: 'Close',
         heading: 'Reason',
         bigHeading: 'Creating Short Url failed :('

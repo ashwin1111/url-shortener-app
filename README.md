@@ -48,3 +48,5 @@ Simple URL shortener! URL shortener allows to reduce long links from Facebook, Y
 <li>Forget password
 
 <li>Profile page
+
+<li>Total clicks
