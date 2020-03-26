@@ -21,7 +21,6 @@ export class AppComponent {
   }
 
   refreshAppComponent() {
-    console.log('refreshAppComponent');
     if (localStorage.getItem('x-access-token') !== null) {
       this.loggedIn = true;
     } else {

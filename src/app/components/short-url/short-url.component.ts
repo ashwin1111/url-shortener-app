@@ -81,7 +81,6 @@ export class ShortUrlComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -94,7 +93,6 @@ export class ShortUrlComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -112,7 +110,6 @@ export class ShortUrlComponent implements OnInit {
   }
 
   validateResult(res) {
-    console.log('res', res);
     if (Object(res).msg && Object(res).msg.short_url) {
       this.bigUrl = null;
       this.customShortUrl = null;

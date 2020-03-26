@@ -22,7 +22,6 @@ export class DisplayShortUrl implements OnInit {
     }
 
     copyToClipboard(): void {
-        console.log('this.shortUrl', this.data.shortUrl);
         var copyText = (document.getElementById("shortUrl") as HTMLInputElement);
         copyText.select();
         copyText.setSelectionRange(0, 99999);

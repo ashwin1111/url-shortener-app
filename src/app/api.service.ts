@@ -18,7 +18,7 @@ export class ApiService {
   }
 
   apiCall(apiUrl, payloadData): Promise<void | Object> {
-    console.log('api call in progress');
+    // console.log('api call in progress');
     const token = localStorage.getItem('x-access-token');
     var httpOptions;
     if (token !== null) {
