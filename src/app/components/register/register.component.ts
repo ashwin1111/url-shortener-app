@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
 
@@ -52,7 +52,6 @@ export class RegisterComponent implements OnInit {
       var baseUrl = this.apiService.getBaseUrl();
 
       this.apiService.apiCall(baseUrl + '/auth/register', data).then(res => {
-        console.log(res);
         this.name = null;
         this.email = null;
         this.password = null;

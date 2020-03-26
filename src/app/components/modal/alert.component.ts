@@ -32,8 +32,6 @@ export class Alert implements OnInit {
     }
 
     ngOnInit() {
-        // console.log('this.shortUrl', this.data);
-        // this.isLoggedIn = this.myapp.refreshAppComponent();
-      }
+    }
 
 }

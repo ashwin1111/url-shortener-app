@@ -34,7 +34,7 @@ export class LogInComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
 
@@ -49,7 +49,6 @@ export class LogInComponent implements OnInit {
       var baseUrl = this.apiService.getBaseUrl();
 
       this.apiService.apiCall(baseUrl + '/auth/login', data).then(res => {
-        console.log('res', res);
         if (Object(res).auth === true && Object(res).msg === 'Login success :)') {
           localStorage.setItem('x-access-token', Object(res).token);
           this.router.navigate(['/short-url']);
