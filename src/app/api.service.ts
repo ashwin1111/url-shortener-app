@@ -12,7 +12,6 @@ export class ApiService {
 
   getBaseUrl() {
     var local = 'http://localhost:3333';
-    var heroku = 'https://short--url.herokuapp.com';
     var prod = 'https://urlll.xyz';
     return prod;
   }
