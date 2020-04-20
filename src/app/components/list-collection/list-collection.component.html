@@ -1,0 +1,29 @@
+<div class="login-wrapper profile">
+    <div class="container">
+      <br> <br> <br> <br>
+  
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of urlList; let i = index">
+          <mdb-card cascade="true" narrower="true">
+            <mdb-card-body cascade="true" class="text-center" style="background-color: #EEEEEE;">
+              <h5 class="pink-text">
+                <!-- <mdb-icon fas icon="utensils"></mdb-icon> Culinary -->
+              </h5>
+              <h4 class="card-title">{{urlList[i].collection_title}}</h4>
+              <mdb-card-text>
+                {{urlList[i].collection_description}}
+              </mdb-card-text>
+              <mdb-card-text>
+              <a href="https://urlll.xyz/collections/{{urlList[i].collection_name}}" target="_blank">urlll.xyz/collections/{{urlList[i].collection_name}}</a>
+              </mdb-card-text>
+              <mdb-card-text><small class="text-muted">Created:  {{urlList[i].collection_created_at | date: 'short'}}</small></mdb-card-text>
+            </mdb-card-body>
+          </mdb-card>
+          <br>
+        </div>
+      </div>
+    </div>
+    <!-- <app-footer></app-footer> -->
+  </div>

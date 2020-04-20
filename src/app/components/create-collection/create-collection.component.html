@@ -1,0 +1,38 @@
+<div class="login-wrapper profile">
+    <div class="container">
+      <br> <br> <br> <br>
+      <!-- <mdb-checkbox [default]="true">Select All</mdb-checkbox> -->
+      <button mdbBtn type="button" color="indigo" mdbWavesEffect (click)="openDialog()">Proceed</button>
+  
+      <div class="row">
+        <div class="col-md-3" *ngFor="let item of urlList; let i = index">
+          <mdb-card cascade="true" narrower="true">
+            <mdb-card-body cascade="true" class="text-center" style="background-color: #EEEEEE;">
+              <h5 class="pink-text">
+                <!-- <mdb-icon fas icon="utensils"></mdb-icon> Culinary -->
+              </h5>
+              <h4 class="card-title">Website Title</h4>
+              <mdb-card-text>
+                Description...
+              </mdb-card-text>
+              <h5 class="card-title">Original Link:</h5>
+              <mdb-card-text>
+                <a href="{{urlList[i].big_url}}" target="_blank">{{urlList[i].big_url | slice:0:23}}...</a>
+              </mdb-card-text>
+              <h5 class="card-title">Shortened Link:</h5>
+              <mdb-card-text>
+              <a href="https://urlll.xyz/{{urlList[i].short_url}}" target="_blank">urlll.xyz/{{urlList[i].short_url}}</a>
+              </mdb-card-text>
+              <a><img src="https://img.icons8.com/cute-clipart/64/000000/edit.png" width="30px" height="30px"/></a>
+              <a><img src="https://img.icons8.com/nolan/64/delete-forever.png" width="30px" height="30px"/></a>
+              <br><br>
+              <mdb-card-text><small class="text-muted">Created: {{urlList[i].created_at | date: 'short'}}</small></mdb-card-text>
+              <mdb-checkbox [default]="true" [value]="urlList[i].id+'|'+urlList[i].short_url" (change)="onCheckboxChange($event)">Select</mdb-checkbox>
+            </mdb-card-body>
+          </mdb-card>
+          <br>
+        </div>
+      </div>
+    </div>
+    <!-- <app-footer></app-footer> -->
+  </div>

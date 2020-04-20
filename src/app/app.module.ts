@@ -26,6 +26,12 @@ import { VerifiedComponent } from './components/verified/verified.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DisplayShortUrl } from './components/modal/display-short-url.component';
 import { Alert } from './components/modal/alert.component';
+import { CreateCollectionPopup } from './components/modal/create-collection-popup.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CreateCollectionComponent } from './components/create-collection/create-collection.component';
+import { CollectionsComponent } from './components/collections/collections.component';
+import { ListCollectionComponent } from './components/list-collection/list-collection.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,12 @@ import { Alert } from './components/modal/alert.component';
     DisplayShortUrl,
     Alert,
     VerifiedComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    CreateCollectionPopup,
+    CreateCollectionComponent,
+    CollectionsComponent,
+    ListCollectionComponent
   ],
   imports: [
     BrowserModule,
@@ -49,13 +60,14 @@ import { Alert } from './components/modal/alert.component';
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [NgxSpinnerModule, NgxSpinnerService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
-    DisplayShortUrl, Alert
+    DisplayShortUrl, Alert, CreateCollectionPopup
   ]
 })
 

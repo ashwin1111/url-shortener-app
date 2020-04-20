@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router"
+import { Router } from "@angular/router";
 import { ApiService } from '../../api.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppComponent } from '../../app.component';
@@ -25,11 +25,13 @@ export class ShortUrlComponent implements OnInit {
     public myapp: AppComponent,
     private spinner: NgxSpinnerService
   ) {
+    this.apiCallInProgress = true;
     this.customShortUrlUpdate.pipe(
       debounceTime(1200),
       distinctUntilChanged())
       .subscribe(value => {
         if (value.length > 0) {
+          this.apiCallInProgress = true;
           this.checkCustomUrl(value);
         }
       });
@@ -43,27 +45,22 @@ export class ShortUrlComponent implements OnInit {
   data: any;
   isLoggedIn = false;
   isAvailable = false;
+  apiCallInProgress = false;
 
-  checkCustomUrl (input) {
+  checkCustomUrl(input) {
     var baseUrl = this.apiService.getBaseUrl();
     this.data = {
       customShortUrl: input
     };
 
+    this.apiCallInProgress = false;
     this.spinner.show();
     this.apiService.apiCall(baseUrl + '/url/availability', this.data).then(res => {
-      if (Object(res).token === 'expired') {
-        this.apiService.apiCall(baseUrl + '/auth/refresh_token', '').then(ress => {
-          localStorage.setItem('x-access-token', Object(ress).token);
-          this.checkCustomUrl(input);
-        });
+      this.spinner.hide();
+      if (Object(res).availability === true) {
+        this.isAvailable = true;
       } else {
-        this.spinner.hide();
-        if (Object(res).availability === true) {
-          this.isAvailable = true;
-        } else {
-          this.isAvailable = false;
-        }
+        this.isAvailable = false;
       }
     });
   }
@@ -72,7 +69,7 @@ export class ShortUrlComponent implements OnInit {
     const dialogRef = this.dialog.open(Alert, {
       width: '400px',
       height: '400px',
-      data: { 
+      data: {
         text: values.text,
         button: values.button,
         heading: values.heading,
@@ -86,8 +83,8 @@ export class ShortUrlComponent implements OnInit {
 
   showDialog(res): void {
     const dialogRef = this.dialog.open(DisplayShortUrl, {
-      width: '400px',
-      height: '400px',
+      width: '450px',
+      height: '450px',
       // res.msg.short_url
       data: { shortUrl: res.msg.short_url }
     });
@@ -136,12 +133,6 @@ export class ShortUrlComponent implements OnInit {
   createUrl(validity) {
     var baseUrl = this.apiService.getBaseUrl();
     this.apiService.apiCall(baseUrl + '/url/' + validity + '/' + this.urlOption, this.data).then(res => {
-      if (Object(res).token === 'expired') {
-        this.apiService.apiCall(baseUrl + '/auth/refresh_token', '').then(ress => {
-          localStorage.setItem('x-access-token', Object(ress).token);
-          this.createUrl(validity);
-        });
-      }
       this.spinner.hide();
       this.validateResult(res);
     });
