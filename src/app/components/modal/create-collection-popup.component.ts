@@ -1,23 +1,23 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../../api.service';
-import { Alert } from '../modal/alert.component';
-import { NgxSpinnerService } from "ngx-spinner";
-import { Router } from "@angular/router";
+import { AlertComponent } from '../modal/alert.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 export interface DialogData {
-    url_id: any;
+    urlIds: any;
 }
 
 @Component({
-    selector: 'create-collection-popup',
+    selector: 'app-create-collection-popup',
     templateUrl: 'create-collection-popup.html'
 })
-export class CreateCollectionPopup implements OnInit {
+export class CreateCollectionPopupComponent implements OnInit {
     constructor(
-        public dialogRef: MatDialogRef<CreateCollectionPopup>,
+        public dialogRef: MatDialogRef<CreateCollectionPopupComponent>,
         public dialog: MatDialog,
         @Inject(MAT_DIALOG_DATA) public data: DialogData,
         private apiService: ApiService,
@@ -37,16 +37,16 @@ export class CreateCollectionPopup implements OnInit {
     }
 
     collectionNameUpdate = new Subject<string>();
-    url_id: any;
+    urlIds: any;
     name: any;
     title: any;
     description: any;
-    short_url: any;
+    shortUrls: any;
     isAvailable = false;
     apiCallInProgress = false;
 
     checkAvailability(input) {
-        var data = {
+        const data = {
             collectionName: input
         };
 
@@ -68,7 +68,7 @@ export class CreateCollectionPopup implements OnInit {
     }
 
     openDialog(values): void {
-        const dialogRef = this.dialog.open(Alert, {
+        const dialogRef = this.dialog.open(AlertComponent, {
             width: '400px',
             height: '400px',
             data: {
@@ -84,13 +84,13 @@ export class CreateCollectionPopup implements OnInit {
     }
 
     submit() {
-        var urlIdCollection = '';
-        this.data.url_id.forEach(element => {
-            urlIdCollection += element + ','
+        let urlIdCollection = '';
+        this.data.urlIds.forEach(element => {
+            urlIdCollection += element + ',';
         });
         urlIdCollection.substring(0, urlIdCollection.length - 1);
 
-        var data = {
+        const data = {
             name: this.name,
             title: this.title,
             description: this.description,
@@ -106,15 +106,15 @@ export class CreateCollectionPopup implements OnInit {
                 this.router.navigate(['/list-collections']);
 
             } else {
-                var data = {
+                const data2 = {
                     text: 'Error in creating collection',
                     button: 'Close',
                     heading: 'Reason',
                     bigHeading: 'Creating Short Url failed'
-                }
-                this.openDialog(data);
+                };
+                this.openDialog(data2);
             }
-        })
+        });
     }
 
     ngOnInit() {

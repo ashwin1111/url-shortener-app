@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CreateCollectionPopup } from "../modal/create-collection-popup.component";
+import { CreateCollectionPopupComponent } from '../modal/create-collection-popup.component';
 
 @Component({
   selector: 'app-profile',

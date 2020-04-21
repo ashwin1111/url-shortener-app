@@ -14,19 +14,19 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Angular Flex Layout */
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 /* Components */
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShortUrlComponent } from './components/short-url/short-url.component';
-import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { VerifiedComponent } from './components/verified/verified.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DisplayShortUrl } from './components/modal/display-short-url.component';
-import { Alert } from './components/modal/alert.component';
-import { CreateCollectionPopup } from './components/modal/create-collection-popup.component';
+import { DisplayShortUrlComponent } from './components/modal/display-short-url.component';
+import { AlertComponent } from './components/modal/alert.component';
+import { CreateCollectionPopupComponent } from './components/modal/create-collection-popup.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CreateCollectionComponent } from './components/create-collection/create-collection.component';
@@ -41,12 +41,12 @@ import { ListCollectionComponent } from './components/list-collection/list-colle
     RegisterComponent,
     LogInComponent,
     ShortUrlComponent,
-    DisplayShortUrl,
-    Alert,
+    DisplayShortUrlComponent,
+    AlertComponent,
     VerifiedComponent,
     FooterComponent,
     ProfileComponent,
-    CreateCollectionPopup,
+    CreateCollectionPopupComponent,
     CreateCollectionComponent,
     CollectionsComponent,
     ListCollectionComponent
@@ -67,7 +67,7 @@ import { ListCollectionComponent } from './components/list-collection/list-colle
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
-    DisplayShortUrl, Alert, CreateCollectionPopup
+    DisplayShortUrlComponent, AlertComponent, CreateCollectionPopupComponent
   ]
 })
 

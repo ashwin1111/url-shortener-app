@@ -9,12 +9,12 @@ export interface DialogData {
 }
 
 @Component({
-    selector: 'alert',
+    selector: 'app-alert',
     templateUrl: 'alert.html'
 })
-export class Alert implements OnInit {
+export class AlertComponent implements OnInit {
     constructor(
-        public dialogRef: MatDialogRef<Alert>,
+        public dialogRef: MatDialogRef<AlertComponent>,
         public dialog: MatDialog,
         @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 

@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppComponent } from '../../app.component';
-import { NgxSpinnerService } from "ngx-spinner";
-import { DisplayShortUrl } from '../modal/display-short-url.component';
-import { Alert } from '../modal/alert.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { DisplayShortUrlComponent } from '../modal/display-short-url.component';
+import { AlertComponent } from '../modal/alert.component';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-short-url',
@@ -48,14 +47,13 @@ export class ShortUrlComponent implements OnInit {
   apiCallInProgress = false;
 
   checkCustomUrl(input) {
-    var baseUrl = this.apiService.getBaseUrl();
     this.data = {
       customShortUrl: input
     };
 
     this.apiCallInProgress = false;
     this.spinner.show();
-    this.apiService.apiCall(baseUrl + '/url/availability', this.data).then(res => {
+    this.apiService.apiCall(this.apiService.getBaseUrl() + '/url/availability', this.data).then(res => {
       this.spinner.hide();
       if (Object(res).availability === true) {
         this.isAvailable = true;
@@ -66,7 +64,7 @@ export class ShortUrlComponent implements OnInit {
   }
 
   openDialog(values): void {
-    const dialogRef = this.dialog.open(Alert, {
+    const dialogRef = this.dialog.open(AlertComponent, {
       width: '400px',
       height: '400px',
       data: {
@@ -82,7 +80,7 @@ export class ShortUrlComponent implements OnInit {
   }
 
   showDialog(res): void {
-    const dialogRef = this.dialog.open(DisplayShortUrl, {
+    const dialogRef = this.dialog.open(DisplayShortUrlComponent, {
       width: '450px',
       height: '450px',
       // res.msg.short_url
@@ -112,27 +110,26 @@ export class ShortUrlComponent implements OnInit {
       this.customShortUrl = null;
       this.showDialog(res);
     } else if (Object(res).error.msg === 'Internal error') {
-      var data = {
+      const data = {
         text: 'There was an error in creating short url',
         button: 'Close',
         heading: 'Reason',
         bigHeading: 'Creating Short Url failed :('
-      }
+      };
       this.openDialog(data);
     } else if (Object(res).error.msg === 'Not a valid URL') {
-      var data = {
+      const data = {
         text: 'Please enter a valid URL',
         button: 'Close',
         heading: 'Reason',
         bigHeading: 'Creating Short Url failed :('
-      }
+      };
       this.openDialog(data);
     }
   }
 
   createUrl(validity) {
-    var baseUrl = this.apiService.getBaseUrl();
-    this.apiService.apiCall(baseUrl + '/url/' + validity + '/' + this.urlOption, this.data).then(res => {
+    this.apiService.apiCall(this.apiService.getBaseUrl() + '/url/' + validity + '/' + this.urlOption, this.data).then(res => {
       this.spinner.hide();
       this.validateResult(res);
     });

@@ -6,12 +6,12 @@ export interface DialogData {
 }
 
 @Component({
-    selector: 'display-short-url',
+    selector: 'app-display-short-url',
     templateUrl: 'display-short-url.html'
 })
-export class DisplayShortUrl implements OnInit {
+export class DisplayShortUrlComponent implements OnInit {
     constructor(
-        public dialogRef: MatDialogRef<DisplayShortUrl>,
+        public dialogRef: MatDialogRef<DisplayShortUrlComponent>,
         public dialog: MatDialog,
         @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
@@ -22,10 +22,10 @@ export class DisplayShortUrl implements OnInit {
     }
 
     copyToClipboard(): void {
-        var copyText = (document.getElementById("shortUrl") as HTMLInputElement);
+        const copyText = (document.getElementById('shortUrl') as HTMLInputElement);
         copyText.select();
         copyText.setSelectionRange(0, 99999);
-        document.execCommand("copy");
+        document.execCommand('copy');
     }
 
     ngOnInit() {

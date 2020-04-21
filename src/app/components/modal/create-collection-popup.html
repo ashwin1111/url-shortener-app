@@ -39,10 +39,10 @@
             <input matInput placeholder="Description" name="description" [(ngModel)]="description" required>
           </mat-form-field>
           Selected Short Url's:
-          <li *ngFor="let item of data.url_id; let i = index">
-            urlll.xyz/{{data.short_url[i]}}
+          <li *ngFor="let item of data.urlIds; let i = index">
+            urlll.xyz/{{data.shortUrls[i]}}
           </li>
-          <!-- <textarea matInput id="text" name="text" [(ngModel)]="data.url_id" cdkTextareaAutosize
+          <!-- <textarea matInput id="text" name="text" [(ngModel)]="data.urlIds" cdkTextareaAutosize
             #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" readonly></textarea> -->
       </mat-card-content>
       <br><br>

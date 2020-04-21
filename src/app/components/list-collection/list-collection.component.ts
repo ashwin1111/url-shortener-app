@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AppComponent } from '../../app.component';
 
 @Component({
@@ -29,7 +29,7 @@ export class ListCollectionComponent implements OnInit {
         this.spinner.hide();
       }).catch(err => {
         this.spinner.hide();
-      })
+      });
     } else {
       this.router.navigate(['/login']);
     }

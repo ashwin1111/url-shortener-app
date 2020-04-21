@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +13,14 @@ export class ApiService {
   ) { }
 
   getBaseUrl() {
-    var local = 'http://localhost:3333';
-    var prod = 'https://urlll.xyz';
+    const local = 'http://localhost:3333';
+    const prod = 'https://urlll.xyz';
     return prod;
   }
 
-  getApiCall(apiUrl): Promise<void | Object> {
+  getApiCall(apiUrl): Promise<void | object> {
     const token = localStorage.getItem('x-access-token');
-    var httpOptions;
+    let httpOptions;
     if (token !== null) {
       httpOptions = {
         headers: new HttpHeaders({
@@ -47,16 +47,16 @@ export class ApiService {
     });
   }
 
-  apiCall(apiUrl, payloadData): Promise<void | Object> {
+  apiCall(apiUrl, payloadData): Promise<void | object> {
     const token = localStorage.getItem('x-access-token');
-    var httpOptions;
+    let httpOptions;
     if (token !== null) {
       httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
           'x-access-token': token
         })
-      }; 
+      };
     } else {
       httpOptions = {
         headers: new HttpHeaders({

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CreateCollectionPopup } from "../modal/create-collection-popup.component";
-import { Router, ActivatedRoute } from "@angular/router";
+import { CreateCollectionPopupComponent } from '../modal/create-collection-popup.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-collection',
@@ -35,22 +35,22 @@ export class CreateCollectionComponent implements OnInit {
 
   openDialog(): void {
     if (this.shortUrlCollection.length > 0) {
-      const dialogRef = this.collectionDialog.open(CreateCollectionPopup, {
+      const dialogRef = this.collectionDialog.open(CreateCollectionPopupComponent, {
         width: '100%',
         height: '100%',
         data: {
-          url_id: this.idCollection,
-          short_url: this.shortUrlCollection
+          urlIds: this.idCollection,
+          shortUrls: this.shortUrlCollection
         }
       });
-  
+
       dialogRef.afterClosed().subscribe(() => {
       });
     }
   }
 
   onCheckboxChange(event) {
-    let split = event.element.value.split('|');
+    const split = event.element.value.split('|');
     event.element.value = split[0];
     if (event.checked === true) {
       this.shortUrlCollection.push(split[1]);
@@ -67,11 +67,10 @@ export class CreateCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    var baseUrl = this.apiService.getBaseUrl();
-    this.apiService.apiCall(baseUrl + '/profile/url', '').then(res => {
+    this.apiService.apiCall(this.apiService.getBaseUrl() + '/profile/url', '').then(res => {
       this.spinner.hide();
       this.urlList = Object(res).list;
-    })
+    });
   }
 
 }
