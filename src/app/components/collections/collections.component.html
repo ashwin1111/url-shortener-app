@@ -15,10 +15,10 @@
               <h5 class="pink-text">
                 <!-- <mdb-icon fas icon="utensils"></mdb-icon> Culinary -->
               </h5>
-              <h4 class="card-title">Website Title</h4>
-              <mdb-card-text>
-                Description...
-              </mdb-card-text>
+              <h4 class="card-title" [innerHTML]="urlList[i].url_title || 'Website Title'"></h4>
+              <mdb-card-text class="text-muted" [innerHTML]="urlList[i].url_description || 'Description...'">
+            </mdb-card-text>
+            <br><br>
               <mdb-card-text>
               <a href="https://urlll.xyz/{{urlList[i].short_url}}" target="_blank">urlll.xyz/{{urlList[i].short_url}}</a>
               </mdb-card-text>

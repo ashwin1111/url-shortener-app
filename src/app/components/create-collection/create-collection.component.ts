@@ -23,19 +23,24 @@ export class CreateCollectionComponent implements OnInit {
   idCollection = [];
   shortUrlCollection = [];
   color = '#DDBDF1';
+  showCheckBoxes = false;
 
   openDialog(): void {
-    const dialogRef = this.collectionDialog.open(CreateCollectionPopup, {
-      width: '100%',
-      height: '100%',
-      data: {
-        url_id: this.idCollection,
-        short_url: this.shortUrlCollection
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-    });
+    if (this.shortUrlCollection.length > 0) {
+      const dialogRef = this.collectionDialog.open(CreateCollectionPopup, {
+        width: '100%',
+        height: '100%',
+        data: {
+          url_id: this.idCollection,
+          short_url: this.shortUrlCollection
+        }
+      });
+  
+      dialogRef.afterClosed().subscribe(() => {
+      });
+    } else {
+      this.showCheckBoxes = true;
+    }
   }
 
   onCheckboxChange(event) {
@@ -52,7 +57,7 @@ export class CreateCollectionComponent implements OnInit {
         }
       }
     }
-    console.log(this.idCollection, this.shortUrlCollection);
+    console.log(this.idCollection, this.shortUrlCollection, this.shortUrlCollection.length);
   }
 
   ngOnInit(): void {
