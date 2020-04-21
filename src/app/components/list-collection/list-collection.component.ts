@@ -25,14 +25,9 @@ export class ListCollectionComponent implements OnInit {
     if (this.myapp.refreshAppComponent() === true) {
       this.spinner.show();
       this.apiService.getApiCall(this.apiService.getBaseUrl() + '/collections/my_collections/all').then(res => {
-        console.log(res);
         this.urlList = Object(res).collections;
-        // this.urlList = Object(res).collections;
-        // this.collectionDescription = Object(res).collections[0].collection_description;
-        // this.collectionTitle =  Object(res).collections[0].collection_title;
         this.spinner.hide();
       }).catch(err => {
-        console.log(err);
         this.spinner.hide();
       })
     } else {

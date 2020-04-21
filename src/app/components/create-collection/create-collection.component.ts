@@ -19,7 +19,6 @@ export class CreateCollectionComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.route.snapshot.paramMap.get('event');
-    console.log(this.route.snapshot.paramMap.get('event'));
     if (this.route.snapshot.paramMap.get('event') === 'create') {
       this.showCreateButton = true;
     }
@@ -31,7 +30,7 @@ export class CreateCollectionComponent implements OnInit {
   idCollection = [];
   shortUrlCollection = [];
   color = '#DDBDF1';
-  showCheckBoxes = false;
+
   showCreateButton = false;
 
   openDialog(): void {
@@ -47,8 +46,6 @@ export class CreateCollectionComponent implements OnInit {
   
       dialogRef.afterClosed().subscribe(() => {
       });
-    } else {
-      this.showCheckBoxes = true;
     }
   }
 
@@ -66,7 +63,6 @@ export class CreateCollectionComponent implements OnInit {
         }
       }
     }
-    console.log(this.idCollection, this.shortUrlCollection, this.shortUrlCollection.length);
   }
 
   ngOnInit(): void {

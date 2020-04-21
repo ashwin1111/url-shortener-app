@@ -4,7 +4,7 @@
       <!-- <mdb-checkbox [default]="true">Select All</mdb-checkbox> -->
       <button *ngIf="showCreateButton === true" mdbBtn type="button" color="indigo" mdbWavesEffect (click)="openDialog()">Create Collection</button>
       <br>
-      <label *ngIf="showCheckBoxes === true">Select the check boxes to create collection</label>
+      <label *ngIf="showCreateButton === true">Select the check boxes to create collection</label>
       <br><br>
   
       <div class="row">
@@ -12,7 +12,6 @@
           <mdb-card cascade="true" narrower="true">
             <mdb-card-body cascade="true" class="text-center" style="background-color: #EEEEEE;">
               <h5 class="pink-text">
-                <!-- <mdb-icon fas icon="utensils"></mdb-icon> Culinary -->
               </h5>
               <h4 class="card-title" [innerHTML]="urlList[i].title || 'Website Title'"></h4>
               <mdb-card-text class="text-muted" [innerHTML]="urlList[i].description || 'Description...' | slice:0:63">
@@ -30,12 +29,11 @@
               <a><img src="https://img.icons8.com/nolan/64/delete-forever.png" width="30px" height="30px"/></a>
               <br><br>
               <mdb-card-text><small class="">Created: {{urlList[i].created_at | date: 'short'}}</small></mdb-card-text>
-              <mdb-checkbox *ngIf="showCheckBoxes === true" [default]="true" [value]="urlList[i].id+'|'+urlList[i].short_url" (change)="onCheckboxChange($event)">Select</mdb-checkbox>
+              <mdb-checkbox *ngIf="showCreateButton === true" [default]="true" [value]="urlList[i].id+'|'+urlList[i].short_url" (change)="onCheckboxChange($event)">Select</mdb-checkbox>
             </mdb-card-body>
           </mdb-card>
           <br>
         </div>
       </div>
     </div>
-    <!-- <app-footer></app-footer> -->
   </div>

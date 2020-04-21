@@ -10,8 +10,28 @@
       <mat-card-content style="overflow: overlay !important;">
  
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" name="name" [(ngModel)]="name" required>
+            <input matInput placeholder="Name" name="name" [(ngModel)]="name" (ngModelChange)="this.collectionNameUpdate.next($event)" required>
           </mat-form-field>
+          <div *ngIf="name?.length > 0 && apiCallInProgress === true" style="
+            position: fixed;
+            left: 175px;
+            top: 190px;
+            width: 8%;
+            height: 6%;" class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <p *ngIf="name?.length > 0 && isAvailable === true"
+            style="background-color: #47e073;">
+            urlll.xyz/collections/{{name}} is available
+          </p>
+          <p *ngIf="name?.length > 0 && isAvailable === false"
+            style="background-color: #ea4848;color: white;">
+            urlll.xyz/collections/{{name}} is not available
+          </p>
+          <p *ngIf="name?.length < 1" style="background-color: #7E9E7D;">
+            Tip: If you have entered myProjects, your collection url will be like urlll.xyz/collections/myProjects
+          </p>
+
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Title" name="title" [(ngModel)]="title" required>
           </mat-form-field>
