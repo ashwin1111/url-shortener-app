@@ -1,0 +1,33 @@
+<div class="login-wrapper profile">
+    <div class="container">
+      <br> <br> <br> <br>
+  
+      <h3 style="text-align: center;">{{collectionTitle}}</h3>
+      <br>
+      <h5>{{collectionDescription}}</h5>
+      <br>
+      <button mdbBtn type="button" color="indigo" mdbWavesEffect (click)="magic()">Open All URL's in a Click</button>
+      <br><br>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of urlList; let i = index">
+          <mdb-card cascade="true" narrower="true">
+            <mdb-card-body cascade="true" class="text-center" style="background-color: #EEEEEE;">
+              <h5 class="pink-text">
+                <!-- <mdb-icon fas icon="utensils"></mdb-icon> Culinary -->
+              </h5>
+              <h4 class="card-title" [innerHTML]="urlList[i].url_title || 'Website Title'"></h4>
+              <mdb-card-text class="text-muted" [innerHTML]="urlList[i].url_description || 'Description...'">
+            </mdb-card-text>
+            <br><br>
+              <mdb-card-text>
+              <a href="https://urlll.xyz/{{urlList[i].short_url}}" target="_blank">urlll.xyz/{{urlList[i].short_url}}</a>
+              </mdb-card-text>
+              <mdb-card-text><small class="text-muted">Created: {{urlList[i].url_created_at | date: 'short'}}</small></mdb-card-text>
+            </mdb-card-body>
+          </mdb-card>
+          <br>
+        </div>
+      </div>
+    </div>
+    <!-- <app-footer></app-footer> -->
+  </div>

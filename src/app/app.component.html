@@ -4,6 +4,10 @@
   <span class="nav-tool-items" style="color: white">
     <a *ngIf="!loggedIn" mat-button routerLink="login" routerLinkActive="active">Login</a>
     <a *ngIf="!loggedIn" mat-button routerLink="register" routerLinkActive="active">Signup</a>
+    <a mat-button routerLink="short-url" routerLinkActive="active">Create Short-Url</a>
+    <a *ngIf="loggedIn" mat-button routerLink="create-collection" routerLinkActive="active">View Short-Urls</a>
+    <a *ngIf="loggedIn" mat-button routerLink="create-collection/create" routerLinkActive="active">Create Collections</a>
+    <a *ngIf="loggedIn" mat-button routerLink="list-collections" routerLinkActive="active">View Collections</a>
     <a *ngIf="loggedIn" mat-button href="mailto:owner@ashwin.engineer" target="_blank">Help</a>
     <a *ngIf="loggedIn" mat-button (click)="logout()">Logout</a>
   </span>

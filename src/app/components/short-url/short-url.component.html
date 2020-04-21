@@ -1,4 +1,4 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="login-wrapper app" fxLayout="row" fxLayoutAlign="center center">
 
   <mat-card class="box">
     <mat-card-header>
@@ -21,6 +21,14 @@
         <input matInput placeholder="example - ppt" name="customShortUrl" [(ngModel)]="customShortUrl"
         (ngModelChange)="this.customShortUrlUpdate.next($event)" required>
       </mat-form-field>
+      <div *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && apiCallInProgress === true" style="
+        position: fixed;
+        left: 175px;
+        top: 324px;
+        width: 8%;
+        height: 6%;" class="spinner-grow" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
       <p *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === true"
         style="background-color: #47e073;">
         urlll.xyz/{{customShortUrl}} is available
