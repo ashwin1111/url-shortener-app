@@ -3,6 +3,7 @@ import { ApiService } from '../../api.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CreateCollectionPopup } from "../modal/create-collection-popup.component";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-create-collection',
@@ -14,8 +15,15 @@ export class CreateCollectionComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private spinner: NgxSpinnerService,
-    public collectionDialog: MatDialog
-  ) { }
+    public collectionDialog: MatDialog,
+    private route: ActivatedRoute
+  ) {
+    this.route.snapshot.paramMap.get('event');
+    console.log(this.route.snapshot.paramMap.get('event'));
+    if (this.route.snapshot.paramMap.get('event') === 'create') {
+      this.showCreateButton = true;
+    }
+  }
 
   bigUrl: any;
   shortUrl: any;
@@ -24,6 +32,7 @@ export class CreateCollectionComponent implements OnInit {
   shortUrlCollection = [];
   color = '#DDBDF1';
   showCheckBoxes = false;
+  showCreateButton = false;
 
   openDialog(): void {
     if (this.shortUrlCollection.length > 0) {

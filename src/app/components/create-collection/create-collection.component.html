@@ -2,7 +2,7 @@
     <div class="container">
       <br> <br> <br> <br>
       <!-- <mdb-checkbox [default]="true">Select All</mdb-checkbox> -->
-      <button mdbBtn type="button" color="indigo" mdbWavesEffect (click)="openDialog()">Create Collection</button>
+      <button *ngIf="showCreateButton === true" mdbBtn type="button" color="indigo" mdbWavesEffect (click)="openDialog()">Create Collection</button>
       <br>
       <label *ngIf="showCheckBoxes === true">Select the check boxes to create collection</label>
       <br><br>

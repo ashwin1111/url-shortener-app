@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'verified', component: VerifiedComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'create-collection', component: CreateCollectionComponent },
+  { path: 'create-collection/:event', component: CreateCollectionComponent },
   { path: 'collections/:name', component: CollectionsComponent },
   { path: 'list-collections', component: ListCollectionComponent }
 ];
