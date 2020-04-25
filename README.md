@@ -1,6 +1,7 @@
 # [URL Shortener](https://urlll.xyz)
 
 Simple URL shortener! URL shortener allows to reduce long links from any site on the Internet, just paste the long URL and click the Shorten URL button. Copy the shortened URL and share it on websites, chat and e-mail. Create collection of mutiple urls like a collection of your personal blogs, etc.., You can also import bookmarks from the [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/urlll/) to the application and create a collection
+<br>
 Feel free to check the [Live Application](https://urlll.xyz)
 
 ## Stack
