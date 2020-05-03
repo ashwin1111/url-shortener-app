@@ -43,6 +43,8 @@ Feel free to check the [Live Application](https://urlll.xyz)
 
 <li>Single click to open all individual urls in a collection in multiple tabs
 
+<li>Total clicks
+
 ## Future releases
 
 <li>Deleting created short url
@@ -62,7 +64,5 @@ Feel free to check the [Live Application](https://urlll.xyz)
 <li>Forget password
 
 <li>Link sharing inside app
-
-<li>Total clicks
 
 <li>Sign up, Sign in with Google Facebook Github Twitter
