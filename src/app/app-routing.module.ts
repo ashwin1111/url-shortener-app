@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'short-url', component: ShortUrlComponent },
-  { path: 'verified', component: VerifiedComponent },
+  { path: 'redirect/:event', component: VerifiedComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'create-collection', component: CreateCollectionComponent },
   { path: 'create-collection/:event', component: CreateCollectionComponent },

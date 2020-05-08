@@ -39,7 +39,7 @@ export class ApiService {
     return this.http.get(apiUrl, httpOptions).toPromise().then(res => {
       if (Object(res).token === 'expired') {
         localStorage.clear();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/redirect/session-expired']);
       }
       return res;
     }).catch(err => {
@@ -68,7 +68,7 @@ export class ApiService {
     return this.http.post(apiUrl, payloadData, httpOptions).toPromise().then(res => {
       if (Object(res).token && Object(res).token === 'expired') {
         // TODO: open a dialog stating session expired
-        this.router.navigate(['/login']);
+        this.router.navigate(['/redirect/session-expired']);
       }
       return res;
     }).catch(err => {
