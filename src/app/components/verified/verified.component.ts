@@ -20,8 +20,8 @@ export class VerifiedComponent implements OnInit {
     } else if (event === 'session-expired') {
       this.msg = 'Session expired, please login again';
       this.clearAndRedirect();
-    } else if (event === 'google-auth') {
-      this.msg = 'Google login successful';
+    } else if (event === 'google-auth' || event === 'facebook-auth' || event === 'github-auth') {
+      this.msg = 'Login successful';
       const token = this.route.snapshot.paramMap.get('token');
       localStorage.setItem('x-access-token', token);
       this.router.navigate(['/short-url']);
