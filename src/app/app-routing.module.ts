@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreateCollectionComponent } from './components/create-collection/create-collection.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { ListCollectionComponent } from './components/list-collection/list-collection.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'short-url' },
@@ -15,11 +16,13 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'short-url', component: ShortUrlComponent },
   { path: 'redirect/:event', component: VerifiedComponent },
+  { path: 'redirect/:event/:token', component: VerifiedComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'create-collection', component: CreateCollectionComponent },
   { path: 'create-collection/:event', component: CreateCollectionComponent },
   { path: 'collections/:name', component: CollectionsComponent },
-  { path: 'list-collections', component: ListCollectionComponent }
+  { path: 'list-collections', component: ListCollectionComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent }
 ];
 
 @NgModule({

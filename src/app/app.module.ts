@@ -32,6 +32,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CreateCollectionComponent } from './components/create-collection/create-collection.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { ListCollectionComponent } from './components/list-collection/list-collection.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ListCollectionComponent } from './components/list-collection/list-colle
     CreateCollectionPopupComponent,
     CreateCollectionComponent,
     CollectionsComponent,
-    ListCollectionComponent
+    ListCollectionComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
