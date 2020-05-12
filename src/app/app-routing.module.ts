@@ -11,7 +11,7 @@ import { ListCollectionComponent } from './components/list-collection/list-colle
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'short-url' },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LogInComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'short-url', component: ShortUrlComponent },

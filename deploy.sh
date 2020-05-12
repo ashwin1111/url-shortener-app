@@ -1,4 +1,4 @@
-read -p "\n\n\n Hey ashwin, did you change the base url??? \n"  sleeeep
+read -p "Hey ashwin, did you change the base url???"  sleeeep
 printf "\n\n\n  Deploy in progress! \n\n\n"
 ng build --prod
 printf "\n\n\n❤️  Build success! ❤️\n\n\n"
