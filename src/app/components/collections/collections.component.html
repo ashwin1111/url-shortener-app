@@ -6,6 +6,7 @@
       <br>
       <h5>{{collectionDescription}}</h5>
       <br>
+      <h6>Total Clicks: {{urlList[0].collection_clicks}}</h6>
       <button mdbBtn type="button" color="indigo" mdbWavesEffect (click)="magic()">Open All URL's in a Click</button>
       <br><br>
       <div class="row">
@@ -22,7 +23,14 @@
               <mdb-card-text>
               <a href="https://urlll.xyz/{{urlList[i].short_url}}" target="_blank">urlll.xyz/{{urlList[i].short_url}}</a>
               </mdb-card-text>
-              <mdb-card-text><small class="text-muted">Created: {{urlList[i].url_created_at | date: 'short'}}</small></mdb-card-text>
+              <mdb-card-text><small class="text-muted">
+                Created: {{urlList[i].url_created_at | date: 'short'}}
+              </small>
+              <br>
+              <small class="text-muted">
+                Total Clicks: {{urlList[i].url_clicks}}
+              </small>
+            </mdb-card-text>
             </mdb-card-body>
           </mdb-card>
           <br>
