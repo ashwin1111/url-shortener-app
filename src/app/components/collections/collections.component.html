@@ -6,7 +6,9 @@
       <br>
       <h5>{{collectionDescription}}</h5>
       <br>
-      <h6>Total Clicks: {{urlList[0].collection_clicks}}</h6>
+      <div *ngIf="urlList">
+        <h6>Total Clicks: {{urlList[0].collection_clicks}}</h6>
+      </div>
       <button mdbBtn type="button" color="indigo" mdbWavesEffect (click)="magic()">Open All URL's in a Click</button>
       <br><br>
       <div class="row">
