@@ -1,7 +1,7 @@
-<div class="login-wrapper profile">
+<!-- <div class="login-wrapper profile">
     <div class="container">
       <br> <br> <br> <br>
-      <!-- <mdb-checkbox [default]="true">Select All</mdb-checkbox> -->
+      
       <button *ngIf="showCreateButton === true" mdbBtn type="button" color="indigo" mdbWavesEffect (click)="openDialog()">Create Collection</button>
       <br>
       <label *ngIf="showCreateButton === true">Select the check boxes to create collection</label>
@@ -39,4 +39,36 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+
+
+  
+    <div class="container">
+      <main class="grid">                                                                                                                                       
+        <article *ngFor="let item of urlList; let i = index">
+            <div class="text" >
+              <h6 class="title_cls" [innerHTML]="urlList[i].title || 'Website Title'"></h6>
+              <p class="meta_data" [innerHTML]="urlList[i].description || 'Description...' | slice:0:100"></p>
+              <h6 class="title_cls">Big Url</h6>
+              <h6 class="url">
+                <a  href="{{urlList[i].big_url}}" target="_blank" >{{urlList[i].big_url | slice:0:30}}...</a>
+              </h6>
+              <h6 class="title_cls">Short Url</h6>
+              <p class="url">
+                <a  href="https://urlll.xyz/{{urlList[i].short_url}}" target="_blank">urlll.xyz/{{urlList[i].short_url}}</a>
+              </p>
+
+              
+              
+              <p >Total Clicks: {{urlList[i].clicks}}</p>
+              <div class="img_cls">
+                <a class="image_class"><img src="https://image.flaticon.com/icons/svg/2919/2919592.svg" width="30px" height="30px"/></a>
+                <a class="image_class"><img src="https://image.flaticon.com/icons/svg/3221/3221897.svg" width="30px" height="30px"/></a>
+              </div>
+              <p class="">Created: {{urlList[i].created_at | date: 'short'}}</p>
+            </div>
+        </article>
+      </main>
+    </div>
+    <app-footer></app-footer>

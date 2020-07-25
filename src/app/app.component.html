@@ -1,5 +1,5 @@
 <!-- Toolbar -->
-<mat-toolbar class="app-header">
+<!-- <mat-toolbar class="app-header">
   <div><a routerLink="short-url" class="positronx">URL Shortener</a></div>
   <span class="nav-tool-items" style="color: white">
     <a *ngIf="!loggedIn" mat-button routerLink="login" routerLinkActive="active">Login</a>
@@ -11,6 +11,58 @@
     <a *ngIf="loggedIn" mat-button href="mailto:owner@ashwin.engineer" target="_blank">Help</a>
     <a *ngIf="loggedIn" mat-button (click)="logout()">Logout</a>
   </span>
-</mat-toolbar>
+</mat-toolbar> -->
+
+
+<!--Navbar-->
+<mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand"  href="#">URL Shortener</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect  *ngIf="!loggedIn"  routerLink="login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect *ngIf="!loggedIn"  routerLink="register" routerLinkActive="active">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect routerLink="short-url" routerLinkActive="active">Create Short URL</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect *ngIf="loggedIn" routerLink="create-collection" routerLinkActive="active">View Short URL</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect *ngIf="loggedIn" routerLink="create-collection/create" routerLinkActive="active">Create Collections</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect *ngIf="loggedIn" routerLink="list-collections" routerLinkActive="active">View Collections</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect *ngIf="loggedIn" href="mailto:owner@ashwin.engineer" target="_blank">Help</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item waves-light" mdbWavesEffect *ngIf="loggedIn" (click)="logout()">Logout</a>
+      </li>
+      
+
+    </ul>
+    <!-- Links -->
+
+    
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+
+
+
 <ngx-spinner bdOpacity = 0.9 size = "large"></ngx-spinner>
 <router-outlet></router-outlet>

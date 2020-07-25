@@ -1,0 +1,15 @@
+
+.navbar-brand{
+    font-weight:600; 
+    letter-spacing: 0.1em;
+
+}
+
+.dropdown-item{
+    border-radius: 8px;
+    background-color: Transparent;
+    font-weight:500; 
+    letter-spacing: 0.1em;
+    
+}
+
