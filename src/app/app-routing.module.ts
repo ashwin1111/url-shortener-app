@@ -9,6 +9,7 @@ import { CreateCollectionComponent } from './components/create-collection/create
 import { CollectionsComponent } from './components/collections/collections.component';
 import { ListCollectionComponent } from './components/list-collection/list-collection.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import {ViewCollectionsComponent } from './components/view-collections/view-collections.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'create-collection/:event', component: CreateCollectionComponent },
   { path: 'collections/:name', component: CollectionsComponent },
   { path: 'list-collections', component: ListCollectionComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent }
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'view-collections',component:ViewCollectionsComponent}
 ];
 
 @NgModule({
