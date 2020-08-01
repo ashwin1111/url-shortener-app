@@ -124,7 +124,7 @@
         </b>
     </div>
     </form>
-    <p class="myclass myclass_padding ">Wanna create account? <a  class="myclass1" routerLink="/register" routerLinkActive="active"> Sign Up</a></p>
+    <p *ngIf="isLoggedIn === false" class="myclass myclass_padding ">Wanna create account? <a  class="myclass1" routerLink="/register" routerLinkActive="active"> Sign Up</a></p>
   </div>
 </body>
 <app-footer></app-footer>
