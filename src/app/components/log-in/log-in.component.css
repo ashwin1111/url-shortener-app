@@ -82,10 +82,10 @@ input {
 }
 .container {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px ;
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  max-width: 90%;
   background-color: var(--white);
   padding: 2em;
   border-radius: 5px;
