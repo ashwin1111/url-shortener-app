@@ -5,7 +5,7 @@ With the help of [Firefox extension](https://addons.mozilla.org/en-US/firefox/ad
 <br>
 Feel free to check the [Live Application](https://urlll.xyz) and [Extension](https://addons.mozilla.org/en-US/firefox/addon/urlll/)
 
-## Stack
+### Stack
 <li>NodeJS - API
 <li>Heroku Postgres - Primary Database
 <li>Redis - Caching
@@ -15,7 +15,7 @@ Feel free to check the [Live Application](https://urlll.xyz) and [Extension](htt
 <li>Heroku - API Deployment
 <li>Mozilla Firefox Add-on Store
 
-## Split-up / Modules
+### Split-up / Modules
 <li>Shorten URL without sign in (Shortened URL will expire in 7 days)
 
 <li>Shorten URL with sign in (Will be availble for lifetime)
@@ -46,7 +46,9 @@ Feel free to check the [Live Application](https://urlll.xyz) and [Extension](htt
 
 <li>Total clicks
 
-## Future releases
+<li>Sign up, Sign in with Google Facebook Github Twitter
+
+### Future releases
 
 <li>Deleting created short url
 
@@ -66,4 +68,14 @@ Feel free to check the [Live Application](https://urlll.xyz) and [Extension](htt
 
 <li>Link sharing inside app
 
-<li>Sign up, Sign in with Google Facebook Github Twitter
+### Contributors
+
+<a href="https://github.com/ashwin1111">
+  <img src="https://avatars3.githubusercontent.com/u/37061471?s=460&u=2c5a9b9ad89dc3bf577432772dbf881fb4774c9f&v=4" 
+  style="border-radius: 50%; width: 10%;">
+</a>
+
+<a href="https://github.com/gokulranjiths">
+  <img src="https://avatars0.githubusercontent.com/u/40691166?s=460&u=274fd9a9187cfd0ee997c058a1077ace9e7154f4&v=4" 
+  style="border-radius: 50%; width: 10%;">
+</a>
