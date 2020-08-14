@@ -70,12 +70,6 @@ Feel free to check the [Live Application](https://urlll.xyz) and [Extension](htt
 
 ### Contributors
 
-<a href="https://github.com/ashwin1111">
-  <img src="https://avatars3.githubusercontent.com/u/37061471?s=460&u=2c5a9b9ad89dc3bf577432772dbf881fb4774c9f&v=4" 
-  style="border-radius: 50%; width: 10%;">
-</a>
-
-<a href="https://github.com/gokulranjiths">
-  <img src="https://avatars0.githubusercontent.com/u/40691166?s=460&u=274fd9a9187cfd0ee997c058a1077ace9e7154f4&v=4" 
-  style="border-radius: 50%; width: 10%;">
+<a href="https://github.com/ashwin1111/url-shortener-app/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=ashwin1111/covid-marketplace-analytics" />
 </a>
