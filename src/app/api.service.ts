@@ -20,7 +20,7 @@ export class ApiService {
 
   getApiCall(apiUrl): Promise<void | object> {
     const token = localStorage.getItem('x-access-token');
-    var httpOptions;
+    let httpOptions;
     if (token !== null) {
       httpOptions = {
         headers: new HttpHeaders({
@@ -49,7 +49,7 @@ export class ApiService {
 
   apiCall(apiUrl, payloadData): Promise<void | object> {
     const token = localStorage.getItem('x-access-token');
-    var httpOptions;
+    let httpOptions;
     if (token !== null) {
       httpOptions = {
         headers: new HttpHeaders({
