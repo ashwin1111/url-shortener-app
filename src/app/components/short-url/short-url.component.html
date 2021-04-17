@@ -31,14 +31,14 @@
       </div>
       <p *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === true"
         style="background-color: #47e073;">
-        urlll.xyz/{{customShortUrl}} is available
+        url-shortener--api.herokuapp.com/{{customShortUrl}} is available
       </p>
       <p *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === false"
         style="background-color: #ea4848;color: white;">
-        urlll.xyz/{{customShortUrl}} is not available
+        url-shortener--api.herokuapp.com/{{customShortUrl}} is not available
       </p>
       <p *ngIf="urlOption === 'custom' && customShortUrl?.length < 1" style="background-color: #7E9E7D;">
-        Tip: If you have entered ppt, your short url will be like urlll.xyz/ppt
+        Tip: If you have entered ppt, your short url will be like url-shortener--api.herokuapp.com/ppt
       </p>
       <br>
       <button *ngIf="isLoggedIn === true" mat-stroked-button color="accent" class="btn-block"
@@ -91,7 +91,7 @@
         <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
         <div class="input-group">
           <div class="input-group-prepend">
-            <div class="input-group-text">urlll.xyz/</div>
+            <div class="input-group-text">url-shortener--api.herokuapp.com/</div>
          
           </div>
           <span class="sr-only">Loading...</span>
@@ -101,16 +101,16 @@
       </div>
       <div class="button_centre">
       <p class="mark_correct" *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === true">
-        <b>urlll.xyz/{{customShortUrl}} </b>is available &#10004; 
+        <b>url-shortener--api.herokuapp.com/{{customShortUrl}} </b>is available &#10004; 
       </p>
     </div>
     <div class="button_centre">
       <p class="mark_incorrect" *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === false">
-        <b>urlll.xyz/{{customShortUrl}} </b>is not available &#x2718;
+        <b>url-shortener--api.herokuapp.com/{{customShortUrl}} </b>is not available &#x2718;
       </p>
     </div>
       <!-- <p *ngIf="urlOption === 'custom' && customShortUrl?.length < 1" >
-        Tip: If you have entered ppt, your short url will be like urlll.xyz/ppt
+        Tip: If you have entered ppt, your short url will be like url-shortener--api.herokuapp.com/ppt
       </p> -->
       <div class="myclass3 button_centre">
         <button *ngIf="isLoggedIn === true"  class="btn btn-primary" (click)="shortenUrl();">Generate a Small URL</button>
