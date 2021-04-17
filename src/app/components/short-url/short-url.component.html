@@ -1,4 +1,4 @@
-<div class="login-wrapper app" fxLayout="row" fxLayoutAlign="center center">
+<!-- <div class="login-wrapper app" fxLayout="row" fxLayoutAlign="center center">
 
   <mat-card class="box">
     <mat-card-header>
@@ -59,5 +59,72 @@
         Don't have an account? Signup</p>
     </form>
   </mat-card>
-</div>
+</div> -->
+
+
+
+<body>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <div class="container">
+    <h1>Shorten your URL</h1>
+      <form >
+      <mat-card-content>
+        <mat-form-field class="col-md-12 lg-12" >
+          <input matInput placeholder="Big URL" name="bigUrl" [(ngModel)]="bigUrl" required>
+        </mat-form-field>     
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="urlOption" name="urlOption">
+          <mat-radio-button class="col-md-12 lg-12" value="custom" style="margin-left: 3%;">Create Custom Url</mat-radio-button>
+          <mat-radio-button class="col-md-12 lg-12" value="random" style="margin-left: 3%;">Create Random Url</mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+      
+      <!-- <mat-form-field *ngIf="urlOption === 'custom'" class="col-md-12 lg-12"  >
+        <input  matInput placeholder="example - ppt" name="customShortUrl" [(ngModel)]="customShortUrl"
+        (ngModelChange)="this.customShortUrlUpdate.next($event)" required>
+      </mat-form-field> -->
+      <div  *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && apiCallInProgress === true" style="
+        width: 8%;
+        height: 6%;" class="spinner-grow" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="col-md-12 lg-12 myclass_padding"  *ngIf="urlOption === 'custom'"  >
+        <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">url-shortener--api.herokuapp.com/</div>
+         
+          </div>
+          <span class="sr-only">Loading...</span>
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername"  matInput placeholder="example - ppt" name="customShortUrl" [(ngModel)]="customShortUrl"
+          (ngModelChange)="this.customShortUrlUpdate.next($event)" required> 
+        </div>
+      </div>
+      <div class="button_centre">
+      <p class="mark_correct" *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === true">
+        <b>url-shortener--api.herokuapp.com/{{customShortUrl}} </b>is available &#10004; 
+      </p>
+    </div>
+    <div class="button_centre">
+      <p class="mark_incorrect" *ngIf="urlOption === 'custom' && customShortUrl?.length > 0 && isAvailable === false">
+        <b>url-shortener--api.herokuapp.com/{{customShortUrl}} </b>is not available &#x2718;
+      </p>
+    </div>
+      <!-- <p *ngIf="urlOption === 'custom' && customShortUrl?.length < 1" >
+        Tip: If you have entered ppt, your short url will be like url-shortener--api.herokuapp.com/ppt
+      </p> -->
+      <div class="myclass3 button_centre">
+        <button *ngIf="isLoggedIn === true"  class="btn btn-primary" (click)="shortenUrl();">Generate a Small URL</button>
+      </div>
+      <div class="myclass3 button_centre">
+        <button *ngIf="isLoggedIn === false"  class="btn btn-primary" (click)="shortenUrl();">Generate a Small URL (7 days validity)</button>
+      </div>
+      <div class="myclass3  button_centre myclass_padding  mark_d" *ngIf="isLoggedIn === false" style="padding-bottom:0%">
+        <b>
+          Looks like you've not logged in! <br> But still you will be able to create short url's with limited time (7 days).
+        </b>
+    </div>
+    </form>
+    <p *ngIf="isLoggedIn === false" class="myclass myclass_padding ">Wanna create account? <a  class="myclass1" routerLink="/register" routerLinkActive="active"> Sign Up</a></p>
+  </div>
+</body>
 <app-footer></app-footer>

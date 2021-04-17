@@ -1,4 +1,4 @@
-<div class="login-wrapper app" fxLayout="row" fxLayoutAlign="center center">
+<!-- <div class="login-wrapper app" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Signup</mat-card-title>
@@ -23,15 +23,15 @@
 
       <button mat-stroked-button color="accent" class="btn-block" (click)="signup()">Ready to Rock</button>
       <br><br>
-      <a style="padding-left: 70px;" href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&client_id=1058325697473-trm8ojpitnaomh3ina07voqe17kvjcq7.apps.googleusercontent.com&prompt=consent&redirect_uri=https://urlll.xyz/auth/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile">
+      <a style="padding-left: 70px;" href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&client_id=1058325697473-trm8ojpitnaomh3ina07voqe17kvjcq7.apps.googleusercontent.com&prompt=consent&redirect_uri=https://url-shortener--api.herokuapp.com/auth/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile">
         <img src="assets/google.png">
       </a>
       <br><br>
-      <a style="padding-left: 72px;" href="https://www.facebook.com/v4.0/dialog/oauth?auth_type=rerequest&client_id=675284143255229&display=popup&redirect_uri=https://urlll.xyz/auth/facebook&response_type=code&scope=email">
+      <a style="padding-left: 72px;" href="https://www.facebook.com/v4.0/dialog/oauth?auth_type=rerequest&client_id=675284143255229&display=popup&redirect_uri=https://url-shortener--api.herokuapp.com/auth/facebook&response_type=code&scope=email">
         <img src="assets/facebook_login.png" width="185px" height="38px">
       </a>
       <br><br>
-      <a style="padding-left: 72px;font-size: 22px; font-weight: bold;" href="https://github.com/login/oauth/authorize?allow_signup=true&client_id=0329fbed363d9dee78cd&redirect_uri=https%3A%2F%2Furlll.xyz%2Fauth%2Fgithub&scope=read%3Auser%20user%3Aemail">
+      <a style="padding-left: 72px;font-size: 22px; font-weight: bold;" href="https://github.com/login/oauth/authorize?allow_signup=true&client_id=0329fbed363d9dee78cd&redirect_uri=https%3A%2F%2Furl-shortener--api.herokuapp.com%2Fauth%2Fgithub&scope=read%3Auser%20user%3Aemail">
         Sign up with GitHub
       </a>
       <br><br>
@@ -46,5 +46,28 @@
 
     </form>
   </mat-card>
-</div>
+</div> -->
+
+
+<body>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <div class="container">
+    <!-- <h1>Welcome! <span class="wave">👋🏾</span></h1> -->
+    <h1>Welcome! </h1>
+    <input type="text"  class="myclass2" placeholder="Name"  name="name" [(ngModel)]="name" required/>
+    <input class="myclass2" placeholder="Email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" name="email" [(ngModel)]="email" required />
+    <input type="password"  class="myclass2" placeholder="Password"  name="password" [(ngModel)]="password" required/>
+    
+    <div class="myclass3"><button type="button" class="btn btn-primary"  (click)="signup()">Sign Up</button></div>
+    <p class="myclass">Or</p>
+               <div class="social-media-icons col-xs-12">
+                <ul class="list-inline col-xs-12">
+                  <a href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&client_id=1058325697473-trm8ojpitnaomh3ina07voqe17kvjcq7.apps.googleusercontent.com&prompt=consent&redirect_uri=https://url-shortener--api.herokuapp.com/auth/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"><i class="fa fa-google-plus-square fa-3x"></i></a>
+                  <a href="https://github.com/login/oauth/authorize?allow_signup=true&client_id=0329fbed363d9dee78cd&redirect_uri=https%3A%2F%2Furl-shortener--api.herokuapp.com%2Fauth%2Fgithub&scope=read%3Auser%20user%3Aemail"><i class="fa fa-github-square fa-3x"></i></a>
+                  <a href="https://www.facebook.com/v4.0/dialog/oauth?auth_type=rerequest&client_id=675284143255229&display=popup&redirect_uri=https://url-shortener--api.herokuapp.com/auth/facebook&response_type=code&scope=email"><i class="fa fa-facebook-square fa-3x"></i></a>
+                </ul>
+              </div>
+              <p class="myclass">Already have an account? <a  class="myclass1" routerLink="/login" routerLinkActive="active">Login</a></p>
+  </div>
+</body>
 <app-footer></app-footer>

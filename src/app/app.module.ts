@@ -33,6 +33,8 @@ import { CreateCollectionComponent } from './components/create-collection/create
 import { CollectionsComponent } from './components/collections/collections.component';
 import { ListCollectionComponent } from './components/list-collection/list-collection.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { ViewCollectionsComponent } from './components/view-collections/view-collections.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     CreateCollectionComponent,
     CollectionsComponent,
     ListCollectionComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    ViewCollectionsComponent
   ],
   imports: [
     BrowserModule,

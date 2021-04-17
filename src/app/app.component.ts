@@ -1,11 +1,15 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit {
   loggedIn = false;
 
@@ -29,10 +33,14 @@ export class AppComponent implements OnInit {
     this.cdr.detectChanges();
     return this.loggedIn;
   }
+  
 
   ngOnInit() {
     if (localStorage.getItem('x-access-token') !== null) {
       this.loggedIn = true;
     }
+    
+  
+    
   }
 }

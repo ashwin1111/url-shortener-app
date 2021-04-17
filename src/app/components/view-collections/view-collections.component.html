@@ -42,44 +42,33 @@
   </div> -->
 
 
-  <div class="img_cls">
-    <label *ngIf="showCreateButton === true">Select the add to collection check box and click on create collection button to create a collection for the set of links</label><br>
-    <button *ngIf="showCreateButton === true" mdbBtn type="button"  class="btn btn-primary" mdbWavesEffect (click)="openDialog()">Create Collection</button>
-  </div>
-    
-      
-      
-      
-  
-    <div class="container">
-      <main class="grid">                                                                                                                                       
-        <article *ngFor="let item of urlList; let i = index">
-            <div class="text" >
-              <h6 class="title_cls" [innerHTML]="urlList[i].title || 'Website Title'"></h6>
-              <p class="meta_data" [innerHTML]="urlList[i].description || 'Description...' | slice:0:100"></p>
-              <h6 class="title_cls">Big Url</h6>
-              <h6 class="url">
-                <a  href="{{urlList[i].big_url}}" target="_blank" >{{urlList[i].big_url | slice:0:30}}...</a>
-              </h6>
-              <h6 class="title_cls">Short Url</h6>
-              <p class="url">
-                <a  href="https://url-shortener--api.herokuapp.com/{{urlList[i].short_url}}" target="_blank">url-shortener--api.herokuapp.com/{{urlList[i].short_url}}</a>
-              </p>
 
-              
-              
-              <p >Total Clicks: {{urlList[i].clicks}}</p>
-              <div class="img_cls">
-                <a class="image_class"><img src="https://image.flaticon.com/icons/svg/2919/2919592.svg" width="30px" height="30px"/></a>
-                <a class="image_class"><img src="https://image.flaticon.com/icons/svg/3221/3221897.svg" width="30px" height="30px"/></a>
-              </div>
-              <p class="">Created: {{urlList[i].created_at | date: 'short'}}</p>
-              <div class="img_cls">
-                <mdb-checkbox *ngIf="showCreateButton === true" [default]="true" [value]="urlList[i].id+'|'+urlList[i].short_url" (change)="onCheckboxChange($event)">Add to collection</mdb-checkbox>
-              </div>
-              
+  
+  <div class="container">
+    <main class="grid">                                                                                                                                       
+      <article *ngFor="let item of urlList; let i = index">
+          <div class="text" >
+            <h6 class="title_cls" [innerHTML]="urlList[i].title || 'Website Title'"></h6>
+            <p class="meta_data" [innerHTML]="urlList[i].description || 'Description...' | slice:0:100"></p>
+            <h6 class="title_cls">Big Url</h6>
+            <h6 class="url">
+              <a  href="{{urlList[i].big_url}}" target="_blank" >{{urlList[i].big_url | slice:0:30}}...</a>
+            </h6>
+            <h6 class="title_cls">Short Url</h6>
+            <p class="url">
+              <a  href="https://url-shortener--api.herokuapp.com/{{urlList[i].short_url}}" target="_blank">url-shortener--api.herokuapp.com/{{urlList[i].short_url}}</a>
+            </p>
+
+            
+            
+            <p >Total Clicks: {{urlList[i].clicks}}</p>
+            <div class="img_cls">
+              <a class="image_class"><img src="https://image.flaticon.com/icons/svg/2919/2919592.svg" width="30px" height="30px"/></a>
+              <a class="image_class"><img src="https://image.flaticon.com/icons/svg/3221/3221897.svg" width="30px" height="30px"/></a>
             </div>
-        </article>
-      </main>
-    </div>
-    <app-footer></app-footer>
+            <p class="">Created: {{urlList[i].created_at | date: 'short'}}</p>
+          </div>
+      </article>
+    </main>
+  </div>
+  <app-footer></app-footer>

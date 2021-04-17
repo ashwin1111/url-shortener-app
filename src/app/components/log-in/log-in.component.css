@@ -1,0 +1,155 @@
+.myclass3{
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  margin-top: 3px;
+}
+
+.myclass2{
+  margin-bottom: 10px;
+}
+.myclass1{
+    text-align: center;
+    margin-bottom: 0em;
+    color: #000;
+    font-weight: 550;
+
+}
+.myclass{
+    padding-top: 5px;
+    text-align: center;
+    
+} 
+
+:root {
+  --white: #fff;
+  --accent-color: #b5838d;
+  --dark-accent-color: #a6757f;
+  --main-color: #6d6875;
+  --dark-main-color: #56505f;
+}
+.wave {
+  display: block;
+  animation: waving 3s infinite;
+}
+
+@keyframes waving {
+  0% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate( 30deg);
+  }
+}
+
+body {
+  background: #fff;
+  /* background: rgb(255, 180, 162); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(255, 180, 162, 1) 0%,
+    rgba(255, 180, 162, 1) 53%,
+    rgba(229, 152, 155, 1) 100%
+  ); */
+  color: var(--main-color);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+a {
+  text-align: center;
+}
+
+h1{
+  font-weight: 550;
+}
+
+
+input {
+  
+  padding: 1em;
+  border-radius: 0px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 95%);
+}
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px ;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  background-color: var(--white);
+  padding: 2em;
+  border-radius: 5px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-top: 10px solid var(--accent-color);
+}
+
+
+@media only screen and (min-width : 280px) {
+  .container{ width: 90% }
+}
+
+@media only screen and (min-width : 480px) {
+  .container{ width: 70% }
+}
+
+@media only screen and (min-width : 768px) {
+  .container{ width: 50% }
+}
+
+@media only screen and (min-width : 992px) {
+  .container{ width: 40% }
+}
+
+.disclaimer {
+  font-size: 0.9em;
+}
+
+a {
+  color: var(--main-color);
+}
+
+a:hover {
+  color: var(--dark-main-color);
+}
+
+.social-media-icons ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.social-media-icons a {	
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px;
+}
+
+.social-media-icons a:nth-child(1) i {
+    color: #DB4437;
+}
+
+.social-media-icons a:nth-child(2) i {
+    color: black;
+}
+
+.social-media-icons a:nth-child(3) i {
+    color: #3b5998;
+}
+
+.social-media-icons a:nth-child(4) i {
+    color: #FF6600;
+}
+
+/* .social-media-icons a i:hover{
+    color: black;
+} */
