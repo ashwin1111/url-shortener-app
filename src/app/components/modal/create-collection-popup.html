@@ -22,14 +22,14 @@
           </div>
           <p *ngIf="name?.length > 0 && isAvailable === true"
             style="background-color: #47e073;">
-            urlll.xyz/collections/{{name}} is available
+            url-shortener--api.herokuapp.com/collections/{{name}} is available
           </p>
           <p *ngIf="name?.length > 0 && isAvailable === false"
             style="background-color: #ea4848;color: white;">
-            urlll.xyz/collections/{{name}} is not available
+            url-shortener--api.herokuapp.com/collections/{{name}} is not available
           </p>
           <p *ngIf="name?.length < 1" style="background-color: #7E9E7D;">
-            Tip: If you have entered myProjects, your collection url will be like urlll.xyz/collections/myProjects
+            Tip: If you have entered myProjects, your collection url will be like url-shortener--api.herokuapp.com/collections/myProjects
           </p>
 
           <mat-form-field class="example-full-width">
@@ -40,7 +40,7 @@
           </mat-form-field>
           Selected Short Url's:
           <li *ngFor="let item of data.urlIds; let i = index">
-            urlll.xyz/{{data.shortUrls[i]}}
+            url-shortener--api.herokuapp.com/{{data.shortUrls[i]}}
           </li>
           <!-- <textarea matInput id="text" name="text" [(ngModel)]="data.urlIds" cdkTextareaAutosize
             #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" readonly></textarea> -->

@@ -1,9 +1,9 @@
-# [URL Shortener](https://urlll.xyz)
+# [URL Shortener](https://urlll-shortener.web.app)
 Not just a regular url shortener that reduces long links and generate a shortened url. It has additional features like creation of collection of links that helps people to open all the url's in a single click. 
 example: Collection of your personal blogs..,, 
 With the help of [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/urlll/), you can also list all your bookmarks and extract selected links and create as a collection 
 <br>
-Feel free to check the [Live Application](https://urlll.xyz) and [Extension](https://addons.mozilla.org/en-US/firefox/addon/urlll/)
+Feel free to check the [Live Application](https://urlll-shortener.web.app) and [Extension](https://addons.mozilla.org/en-US/firefox/addon/urlll/)
 
 ### Stack
 <li>NodeJS - API
@@ -38,7 +38,7 @@ Feel free to check the [Live Application](https://urlll.xyz) and [Extension](htt
 
 <li>Check whether the requested short url is available
 
-<li>URL Collections - ex: you can have your own collections like urlll.xyz/collections/ashwin
+<li>URL Collections - ex: you can have your own collections like url-shortener--api.herokuapp.com/collections/ashwin
 
 <li>List page for created urls, collections, etc..,
 

@@ -14,7 +14,7 @@ export class ApiService {
 
   getBaseUrl() {
     const local = 'http://localhost:3333';
-    const prod = 'https://urlll.xyz';
+    const prod = 'https://url-shortener--api.herokuapp.com';
     return prod;
   }
 
